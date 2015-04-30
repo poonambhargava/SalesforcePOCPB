@@ -1,0 +1,26 @@
+<script>
+	$(document).ready(function(){
+		
+		$(".stage-selection-box").each(function(){
+			
+			var $select = $(this).find("select");
+			var $wrapper = $(this);
+
+			var comboBox = "<div class='comboBox'>"
+						+"<label class='showValue'></label>"
+						+"<a class='arrow'></a>"
+					+"</div>"
+			var selectedValue = $select.val();
+			comboBox.find('.showValue').html(selectedValue);
+			
+			var combovalue = "<ul class="comboValue"></ul>";
+			var optionString ='';
+			$select.option.each(function(){
+				
+				optionString += "<li class="$(this).is(':selected') ? selected : ''" dataValue="+ $(this).text+">" +$(this).text() +"</li>"
+			});
+			combovalue.append(optionString);
+
+		});		
+	});
+</script>
